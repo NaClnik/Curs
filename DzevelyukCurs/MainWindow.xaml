@@ -9,6 +9,6 @@
         Title="Птицефабрика" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Label Name="sasa"></Label>
     </Grid>
 </controls:MetroWindow>

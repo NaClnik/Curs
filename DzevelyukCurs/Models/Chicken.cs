@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DzevelyukCurs.Models
+{
+    // Класс, описывающий табилу "Курицы".
+    public class Chicken
+    {
+        // Свойства класса.
+        public int Id { get; set; }            // Идентификатор.
+        public double Weight { get; set; }     // Вес.
+        public int Age { get; set; }           // Возраст.
+        public Breed Breed { get; set; }       // Порода.
+        public int NumberOfEggs { get; set; }  // Ежемесячное количество яиц.
+        public virtual Cell Cell { get; set; } // Клетка, в которой находится курица.
+        // О каждой курице должна храниться следующая информация:
+        // вес, возраст, порода, количество ежемесячно получаемых
+        // от курицы яиц, а также информация о местонахождении курицы.
+    } // Chicken.
+}

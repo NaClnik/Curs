@@ -92,7 +92,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Breed.cs" />
+    <Compile Include="Models\Chicken.cs" />
     <Compile Include="Models\Diet.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\FarmContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

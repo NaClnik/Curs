@@ -10,11 +10,12 @@ namespace DzevelyukCurs.Models
     public class Breed
     {
         // Свойства класса.
-        public int Id { get; set; } // Идентификатор.
-        public string Title { get; set; } // Название.
-        public int Performance { get; set; } // Среднее количество яиц в месяц.
-        public double AverageWeight { get; set; } // Средний вес.
-        public virtual Diet Diet { get; set; } // Рекомендованная диета.
+        public int Id { get; set; }                                // Идентификатор.
+        public string Title { get; set; }                          // Название.
+        public int Performance { get; set; }                       // Среднее количество яиц в месяц.
+        public double AverageWeight { get; set; }                  // Средний вес.
+        public virtual Diet Diet { get; set; }                     // Рекомендованная диета.
+        public virtual ICollection<Chicken> Chickens { get; set; } // Курицы данной породы.
         // Сведения о породе включают в себя: название породы,
         // среднее количество яиц в месяц(производительность)
         // и средний вес, номер рекомендованной диеты.
