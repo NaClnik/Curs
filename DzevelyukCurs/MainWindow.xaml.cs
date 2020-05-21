@@ -32,10 +32,7 @@ namespace DzevelyukCurs
             using (FarmContext db = new FarmContext())
             {
                 //db.Database.Delete();
-                db.Employees.Add(new Employee { }); 
-                sasa.Content = db.Database.Exists();
             }
-            
         }
     }
 }

@@ -10,9 +10,9 @@ namespace DzevelyukCurs.Models
     public class Cell
     {
         // Свойства класса.
-        public int Id { get; set; }                                                   // Идентификатор.
-        public (int shopNumber, int rowNumber, int cellNumber) CellInfo { get; set; } // Информация о расположении клетки.
-        public virtual Employee Employee { get; set; }                                // Работник, закреплённый за клеткой.
-        public virtual ICollection<Chicken> Chickens { get; set; }                    // Куры, находящиеся в клетке.
+        public int Id { get; set; }                                // Идентификатор.
+        public CellInfo CellInfo { get; set; }                     // Информация о расположении клетки.
+        public virtual Employee Employee { get; set; }             // Работник, закреплённый за клеткой.
+        public virtual ICollection<Chicken> Chickens { get; set; } // Куры, находящиеся в клетке.
     } // Shop.
 }
