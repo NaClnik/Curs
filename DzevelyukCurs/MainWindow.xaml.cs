@@ -26,6 +26,16 @@ namespace DzevelyukCurs
         public MainWindow()
         {
             InitializeComponent();
+            
+            //Database.SetInitializer(new DropCreateDatabaseAlways<FarmContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<FarmContext>());
+            using (FarmContext db = new FarmContext())
+            {
+                //db.Database.Delete();
+                db.Employees.Add(new Employee { }); 
+                sasa.Content = db.Database.Exists();
+            }
+            
         }
     }
 }
