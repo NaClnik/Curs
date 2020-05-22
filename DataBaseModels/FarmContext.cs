@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DzevelyukCurs.Models
+namespace DataBaseModels
 {
     public class FarmContext : DbContext
     {

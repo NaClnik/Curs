@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DzevelyukCurs.Models;
+using DataBaseModels;
 using MahApps.Metro.Controls;
 
 namespace DzevelyukCurs
@@ -31,7 +31,7 @@ namespace DzevelyukCurs
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<FarmContext>());
             using (FarmContext db = new FarmContext())
             {
-                //db.Database.Delete();
+                db.Database.Delete();
             }
         }
     }

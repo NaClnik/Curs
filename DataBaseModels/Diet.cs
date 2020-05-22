@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DzevelyukCurs.Models
+namespace DataBaseModels
 {
     // Класс, описывающий таблицу "Диеты".
     public class Diet
