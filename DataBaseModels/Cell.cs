@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace DataBaseModels
 {
-    // Класс, описывающий таблицу "Клетки".
+    // Класс, характеризующий клетку.
     public class Cell
     {
         // Свойства класса.
-        public int Id { get; set; }                                // Идентификатор.
-        public CellInfo CellInfo { get; set; }                     // Информация о расположении клетки.
-        public virtual Employee Employee { get; set; }             // Работник, закреплённый за клеткой.
-        public virtual ICollection<Chicken> Chickens { get; set; } // Куры, находящиеся в клетке.
-    } // Shop.
+        public int Id { get; set; }                    // Идентификатор.
+        public int RowNumber { get; set; }             // Номер ряда.
+        public int CellNumber { get; set; }            // Номер клетки.
+        public virtual Shop Shop { get; set; }         // Цех, в котором находится клетка.
+        public virtual Employee Employee { get; set; } // Работник, закреплённый за этой клеткой.
+    } // Cell.
 }

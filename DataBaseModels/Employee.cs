@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataBaseModels
 {
-    // Класс, описывающий таблицу "Работники".
-    public class Employee
+    public class Employee : Person
     {
         // Свойства класса.
-        public int Id { get; set; }          // Идентификатор.
-        public string Passport { get; set; } // Паспортные данные.
-        public double Salary { get; set; }   // Зарплата.
-        public virtual ICollection<Cell> Cells { get; set; } // Закреплённые за работником клетки.
-        // О работниках птицефабрики в БД должна храниться следующая информация:
-        // паспортные данные, зарплата, закрепленные за работником клетки.
+        public ICollection<Cell> Cells { get; set; } // Клетки, которые обслуживаются работником.
     } // Employee.
 }

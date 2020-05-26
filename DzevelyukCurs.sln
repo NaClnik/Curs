@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DzevelyukCurs", "DzevelyukC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseModels", "DataBaseModels\DataBaseModels.csproj", "{709353E4-6FDA-48BB-B244-8E4571C1407E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{10B83618-F705-4BB0-81CE-CE06315884CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerAPI", "ServerAPI\ServerAPI.csproj", "{B8859119-7682-4F28-A1A4-3C2CBC70E830}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{709353E4-6FDA-48BB-B244-8E4571C1407E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{709353E4-6FDA-48BB-B244-8E4571C1407E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{709353E4-6FDA-48BB-B244-8E4571C1407E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10B83618-F705-4BB0-81CE-CE06315884CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10B83618-F705-4BB0-81CE-CE06315884CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10B83618-F705-4BB0-81CE-CE06315884CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10B83618-F705-4BB0-81CE-CE06315884CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8859119-7682-4F28-A1A4-3C2CBC70E830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8859119-7682-4F28-A1A4-3C2CBC70E830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8859119-7682-4F28-A1A4-3C2CBC70E830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8859119-7682-4F28-A1A4-3C2CBC70E830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

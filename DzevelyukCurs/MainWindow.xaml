@@ -9,6 +9,14 @@
         Title="Птицефабрика" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Name="sasa"></Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <Button Command="{Binding Command}"
+                CommandParameter="{Binding ElementName=lol}"/>
+        <Border Grid.Row="1" BorderThickness="5" BorderBrush="Black">
+            <WrapPanel Orientation="Horizontal" Name="lol"></WrapPanel>
+        </Border>
     </Grid>
 </controls:MetroWindow>

@@ -15,7 +15,6 @@ namespace DataBaseModels
         public int Age { get; set; }           // Возраст.
         public Breed Breed { get; set; }       // Порода.
         public int NumberOfEggs { get; set; }  // Ежемесячное количество яиц.
-        public virtual Cell Cell { get; set; } // Клетка, в которой находится курица.
         // О каждой курице должна храниться следующая информация:
         // вес, возраст, порода, количество ежемесячно получаемых
         // от курицы яиц, а также информация о местонахождении курицы.
