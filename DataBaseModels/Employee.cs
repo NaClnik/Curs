@@ -9,6 +9,7 @@ namespace DataBaseModels
     public class Employee : Person
     {
         // Свойства класса.
-        public ICollection<Cell> Cells { get; set; } // Клетки, которые обслуживаются работником.
+        public virtual ICollection<Cell> Cells { get; set; } // Клетки, которые обслуживаются работником.
+        public virtual Shop Shop { get; set; }               // Цех, за которым закреплён работник.
     } // Employee.
 }

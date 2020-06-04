@@ -50,6 +50,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="Chicken.cs" />
     <Compile Include="Diet.cs" />
+    <Compile Include="Director.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="FarmContext.cs" />
     <Compile Include="Person.cs" />
