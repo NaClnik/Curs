@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataBaseModels
 {
-    // Класс, описывающий директора.
-    public class Director
+    // Класс, описывающий таблицу "Логины". 
+    public class Login
     {
         // Свойства класса.
         public int Id { get; set; }
-        public virtual Person Person { get; set; }
-    } // Director.
+        public string LoginString { get; set; }
+        public virtual ICollection<Person> Persons { get; set; }
+    } // Login.
 }

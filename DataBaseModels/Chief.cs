@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataBaseModels
 {
-    // Класс, описывающий директора.
-    public class Director
+    // Класс, описывающий таблицу "Начальники".
+    public class Chief
     {
         // Свойства класса.
         public int Id { get; set; }
         public virtual Person Person { get; set; }
-    } // Director.
+    } // Chief.
 }
