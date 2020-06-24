@@ -10,3 +10,7 @@ Server/bin
 Server/obj
 ServerAPI/bin
 ServerAPI/obj
+Client/bin
+Client/obj
+DataBaseAccess/bin
+DataBaseAccess/obj
