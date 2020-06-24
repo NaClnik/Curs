@@ -13,5 +13,15 @@ namespace DataBaseModels
         public int Id { get; set; }
         public string LoginString { get; set; }
         public virtual ICollection<Person> Persons { get; set; }
+
+        // Ансамбль конструкторов.
+        // Конструктор по умолчанию.
+        public Login() { }
+
+        // Конструктор с параметрами.
+        public Login(string loginString)
+        {
+            LoginString = loginString;
+        } // ctorf.
     } // Login.
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataBaseModels;
+using Server.ViewModels;
 
 namespace Server
 {
@@ -23,6 +26,8 @@ namespace Server
         public MainWindow()
         {
             InitializeComponent();
-        }
+
+            DataContext = new ApplicationViewModel();
+        } // ctor.
     }
 }

@@ -16,5 +16,16 @@ namespace DataBaseModels
         public virtual Shop Shop { get; set; }                     // Цех, в котором находится клетка.
         public virtual Employee Employee { get; set; }             // Работник, закреплённый за этой клеткой.
         public virtual ICollection<Chicken> Chickens { get; set; } // Курицы, живущие в клетке.
+
+        // Ансамбль конструкторов.
+        // Конструктор по умолчанию.
+        public Cell() { }
+
+        // Конструктор с параметрами.
+        public Cell(int rowNumber, int cellNumber)
+        {
+            RowNumber = rowNumber;
+            CellNumber = cellNumber;
+        } // ctorf.
     } // Cell.
 }

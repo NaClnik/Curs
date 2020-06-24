@@ -16,5 +16,17 @@ namespace DataBaseModels
         public int NumberOfEggs { get; set; }    // Ежемесячное количество яиц.
         public virtual Breed Breed { get; set; } // Порода.
         public virtual Cell Cell { get; set; }   // Клетка, в которой живёт курица.
+
+        // Ансамбль конструкторов.
+        // Конструктор по умолчанию.
+        public Chicken() { }
+
+        // Конструктор с параметрами.
+        public Chicken(double weight, int age, int numberOfEggs)
+        {
+            Weight = weight;
+            Age = age;
+            NumberOfEggs = numberOfEggs;
+        } // ctorf.
     } // Chicken.
 }

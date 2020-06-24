@@ -16,8 +16,17 @@ namespace DataBaseModels
         public double AverageWeight { get; set; }                  // Средний вес.
         public virtual Diet Diet { get; set; }                     // Рекомендованная диета.
         public virtual ICollection<Chicken> Chickens { get; set; } // Курицы данной породы.
-        // Сведения о породе включают в себя: название породы,
-        // среднее количество яиц в месяц(производительность)
-        // и средний вес, номер рекомендованной диеты.
+
+        // Ансамбль конструкторов.
+        // Конструктор по умолчанию.
+        public Breed() { }
+
+        // Конструктор с параметрами.
+        public Breed(string title, int performance, double averageWeight)
+        {
+            Title = title;
+            Performance = performance;
+            AverageWeight = averageWeight;
+        } // ctorf.
     } // Breed.
 }
