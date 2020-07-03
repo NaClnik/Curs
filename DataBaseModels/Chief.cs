@@ -13,5 +13,7 @@ namespace DataBaseModels
         public int Id { get; set; }
         public virtual Person Person { get; set; }
         public virtual Shop Shop { get; set; }
+
+        public override string ToString() => Person.ToString();
     } // Chief.
 }

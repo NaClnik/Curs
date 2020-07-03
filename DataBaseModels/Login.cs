@@ -23,5 +23,7 @@ namespace DataBaseModels
         {
             LoginString = loginString;
         } // ctorf.
+
+        public override string ToString() => LoginString;
     } // Login.
 }

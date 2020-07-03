@@ -9,13 +9,24 @@
         xmlns:local="clr-namespace:Server"
         mc:Ignorable="d"
         Title="Сервер"
-        Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Name="Main"
+        Height="608" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <!-- Дизайн взят отсюда https://www.youtube.com/watch?v=XcXjIqjB108 -->
     <Grid>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF9C27B0">
-            <TextBlock Text="Design com WPF" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" />
-            <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction
+                        Command="{Binding DragWindowCommand}"
+                        CommandParameter="{Binding ElementName=Main}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <TextBlock Text="Сервер" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" />
+            <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"
+                    Command="{Binding CloseWindowCommand}"
+                    CommandParameter="{Binding ElementName=Main}">
                 <materialDesign:PackIcon Kind="Power"/>
             </Button>
         </Grid>
@@ -24,10 +35,43 @@
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController/>
                 </dragablz:TabablzControl.InterTabController>
-                <TabItem Header="HOME">
-                    <TextBlock Text="Hello World!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TabItem Header="Панель управления">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <GroupBox Header="Таблицы БД" Margin="5">
+                            <StackPanel Orientation="Vertical" Margin="5,0,0,0" CanVerticallyScroll="True">
+                                <Button Margin="0,5,0,0" Command="{Binding ShowShopsCommand}">Цеха</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowCellsCommand}">Клетки</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowChickensCommand}">Курицы</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowBreedsCommand}">Породы</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowDietsCommand}">Диеты</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowPersonsCommand}">Персоны</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowDirectorsCommand}">Директора</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowChiefsCommand}">Начальники цехов</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowEmployeesCommand}">Работники</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowStatusesCommand}">Статусы</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowLoginsCommand}">Логины</Button>
+                                <Button Margin="0,5,0,0" Command="{Binding ShowPasswordHashesCommand}">Пароли</Button>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Grid.Column="1" 
+                                  Header="Управление TCP-Сервером" Margin="5">
+                            <StackPanel Orientation="Vertical">
+                                <ToggleButton/>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+
                 </TabItem>
-                <TabItem Header="DESIGN">
+                <TabItem Header="">
                     <TextBlock Text="Amazing designs!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </TabItem>
                 <TabItem Header="HELP">
@@ -42,11 +86,4 @@
             </dragablz:TabablzControl>
         </Grid>
     </Grid>
-
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction
-                Command="{Binding CreateDataBaseCommand}"/>
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
 </Window>

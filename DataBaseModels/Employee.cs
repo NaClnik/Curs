@@ -13,5 +13,7 @@ namespace DataBaseModels
         public virtual Person Person { get; set; }
         public virtual Shop Shop { get; set; }               // Цех, за которым закреплён работник.
         public virtual ICollection<Cell> Cells { get; set; } // Клетки, которые обслуживаются работником.
+
+        public override string ToString() => Person.ToString();
     } // Employee.
 }

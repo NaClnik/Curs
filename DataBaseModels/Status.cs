@@ -21,5 +21,7 @@ namespace DataBaseModels
         {
             StatusString = statusString;
         } // ctorf.
+
+        public override string ToString() => StatusString;
     } // Status.
 }

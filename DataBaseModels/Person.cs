@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DataBaseModels
 {
@@ -36,5 +37,7 @@ namespace DataBaseModels
             Passport = passport;
             Salary = salary;
         } // ctorf.
+
+        public override string ToString() => $"{Surname} {Name[0]}.{Patronymic[0]}";
     } // Person.
 }

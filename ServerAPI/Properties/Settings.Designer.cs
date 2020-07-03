@@ -33,5 +33,16 @@ namespace ServerAPI.Properties {
                 return ((string)(this["FarmDbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Test52.mdf;In" +
+            "tegrated Security=True;Connect Timeout=30")]
+        public string Test52ConnectionString {
+            get {
+                return ((string)(this["Test52ConnectionString"]));
+            }
+        }
     }
 }

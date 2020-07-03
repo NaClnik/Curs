@@ -28,5 +28,7 @@ namespace DataBaseModels
             Performance = performance;
             AverageWeight = averageWeight;
         } // ctorf.
+
+        public override string ToString() => Title;
     } // Breed.
 }

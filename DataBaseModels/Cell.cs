@@ -27,5 +27,7 @@ namespace DataBaseModels
             RowNumber = rowNumber;
             CellNumber = cellNumber;
         } // ctorf.
+
+        public override string ToString() => $"Ряд {RowNumber}, Номер {CellNumber}";
     } // Cell.
 }

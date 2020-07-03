@@ -23,5 +23,7 @@ namespace DataBaseModels
         {
             DietTitle = dietTitle;
         } // ctorf.
+
+        public override string ToString() => DietTitle;
     } // Diet.
 }

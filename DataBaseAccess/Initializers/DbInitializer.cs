@@ -8,7 +8,7 @@ using DataBaseModels;
 
 namespace DataBaseAccess.Initializers
 {
-    public class DbInitializer : DropCreateDatabaseAlways<FarmContext>
+    public class DbInitializer : CreateDatabaseIfNotExists<FarmContext>
     {
         protected override void Seed(FarmContext context)
         {
@@ -50,16 +50,16 @@ namespace DataBaseAccess.Initializers
             // Пароли.
             PasswordHash[] passwordHashes =
             {
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty"), 
-                new PasswordHash("qwerty")
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty")), 
+                new PasswordHash(PasswordHash.GetHash("qwerty"))
             };
 
             // Статусы.
@@ -175,7 +175,6 @@ namespace DataBaseAccess.Initializers
             };
 
             // Заполнение БД.
-            context.Diets.Add(new Diet("Диета"));
             foreach (var item in diets)
                 context.Diets.Add(item);
 
@@ -207,6 +206,9 @@ namespace DataBaseAccess.Initializers
             
             foreach (var item in cells)
                 context.Cells.Add(item);
+
+            foreach (var item in chickens)
+                context.Chickens.Add(item);
             
             context.SaveChanges();
         } // Seed.

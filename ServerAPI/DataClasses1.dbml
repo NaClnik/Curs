@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Test52" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Test52.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="ServerAPI.Properties.Settings" SettingsPropertyName="Test52ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Breeds" Member="Breeds">
+    <Type Name="Breeds">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Performance" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AverageWeight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Diet_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Breeds_Chickens" Member="Chickens" ThisKey="Id" OtherKey="Breed_Id" Type="Chickens" />
+      <Association Name="Diets_Breeds" Member="Diets" ThisKey="Diet_Id" OtherKey="Id" Type="Diets" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Status" Member="Status">
+    <Type Name="Status">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StatusString" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Status_People" Member="People" ThisKey="Id" OtherKey="Status_Id" Type="People" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cells" Member="Cells">
+    <Type Name="Cells">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RowNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CellNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Employee_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shop_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Cells_Chickens" Member="Chickens" ThisKey="Id" OtherKey="Cell_Id" Type="Chickens" />
+      <Association Name="Employees_Cells" Member="Employees" ThisKey="Employee_Id" OtherKey="Id" Type="Employees" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Shops_Cells" Member="Shops" ThisKey="Shop_Id" OtherKey="Id" Type="Shops" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Chickens" Member="Chickens">
+    <Type Name="Chickens">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfEggs" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cell_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Breed_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Chickens_Reports" Member="Reports" ThisKey="Id" OtherKey="Chicken_Id" Type="Reports" />
+      <Association Name="Breeds_Chickens" Member="Breeds" ThisKey="Breed_Id" OtherKey="Id" Type="Breeds" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Cells_Chickens" Member="Cells" ThisKey="Cell_Id" OtherKey="Id" Type="Cells" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Chiefs" Member="Chiefs">
+    <Type Name="Chiefs">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Person_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Chiefs_Shops" Member="Shops" ThisKey="Id" OtherKey="Id" Type="Shops" Cardinality="One" />
+      <Association Name="People_Chiefs" Member="People" ThisKey="Person_Id" OtherKey="Id" Type="People" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Diets" Member="Diets">
+    <Type Name="Diets">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DietTitle" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Diets_Breeds" Member="Breeds" ThisKey="Id" OtherKey="Diet_Id" Type="Breeds" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Directors" Member="Directors">
+    <Type Name="Directors">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Person_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="People_Directors" Member="People" ThisKey="Person_Id" OtherKey="Id" Type="People" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employees">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Person_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shop_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Employees_Cells" Member="Cells" ThisKey="Id" OtherKey="Employee_Id" Type="Cells" />
+      <Association Name="People_Employees" Member="People" ThisKey="Person_Id" OtherKey="Id" Type="People" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Shops_Employees" Member="Shops" ThisKey="Shop_Id" OtherKey="Id" Type="Shops" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Logins" Member="Logins">
+    <Type Name="Logins">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoginString" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Logins_People" Member="People" ThisKey="Id" OtherKey="Login_Id" Type="People" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PasswordHashes" Member="PasswordHashes">
+    <Type Name="PasswordHashes">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PasswordHashString" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="PasswordHashes_People" Member="People" ThisKey="Id" OtherKey="PasswordHash_Id" Type="People" />
+    </Type>
+  </Table>
+  <Table Name="dbo.People" Member="People">
+    <Type Name="People">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Patronymic" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Passport" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Salary" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Status_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Login_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="People_Chiefs" Member="Chiefs" ThisKey="Id" OtherKey="Person_Id" Type="Chiefs" />
+      <Association Name="People_Directors" Member="Directors" ThisKey="Id" OtherKey="Person_Id" Type="Directors" />
+      <Association Name="People_Employees" Member="Employees" ThisKey="Id" OtherKey="Person_Id" Type="Employees" />
+      <Association Name="Logins_People" Member="Logins" ThisKey="Login_Id" OtherKey="Id" Type="Logins" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="PasswordHashes_People" Member="PasswordHashes" ThisKey="PasswordHash_Id" OtherKey="Id" Type="PasswordHashes" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Status_People" Member="Status" ThisKey="Status_Id" OtherKey="Id" Type="Status" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reports" Member="Reports">
+    <Type Name="Reports">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Eggs" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Chicken_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Chickens_Reports" Member="Chickens" ThisKey="Chicken_Id" OtherKey="Id" Type="Chickens" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shops" Member="Shops">
+    <Type Name="Shops">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Shops_Cells" Member="Cells" ThisKey="Id" OtherKey="Shop_Id" Type="Cells" />
+      <Association Name="Shops_Employees" Member="Employees" ThisKey="Id" OtherKey="Shop_Id" Type="Employees" />
+      <Association Name="Chiefs_Shops" Member="Chiefs" ThisKey="Id" OtherKey="Id" Type="Chiefs" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

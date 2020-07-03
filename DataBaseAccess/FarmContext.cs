@@ -15,6 +15,7 @@ namespace DataBaseAccess
         // Таблицы.
         public DbSet<Breed> Breeds { get; set; }                // Таблица "Породы".
         public DbSet<Chicken> Chickens { get; set; }            // Таблица "Курицы".
+        public DbSet<Report> Reports { get; set; }              // Таблица "Отчёты".
         public DbSet<Diet> Diets { get; set; }                  // Таблица "Диеты".
         public DbSet<Shop> Shops { get; set; }                  // Таблица "Цеха".
         public DbSet<Cell> Cells { get; set; }                  // Таблица "Клетки".
@@ -34,6 +35,10 @@ namespace DataBaseAccess
             modelBuilder.Entity<Breed>()
                 .HasMany(p => p.Chickens)
                 .WithRequired(p => p.Breed);
+
+            modelBuilder.Entity<Chicken>()
+                .HasMany(p => p.Reports)
+                .WithRequired(p => p.Chicken);
 
             modelBuilder.Entity<Diet>()
                 .HasMany(p => p.Breeds)

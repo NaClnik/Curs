@@ -16,6 +16,7 @@ namespace DataBaseModels
         public int NumberOfEggs { get; set; }    // Ежемесячное количество яиц.
         public virtual Breed Breed { get; set; } // Порода.
         public virtual Cell Cell { get; set; }   // Клетка, в которой живёт курица.
+        public virtual ICollection<Report> Reports { get; set; }
 
         // Ансамбль конструкторов.
         // Конструктор по умолчанию.
@@ -28,5 +29,7 @@ namespace DataBaseModels
             Age = age;
             NumberOfEggs = numberOfEggs;
         } // ctorf.
+
+        public override string ToString() => $"Порода: {Breed}";
     } // Chicken.
 }
