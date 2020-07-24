@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Client.ViewModels;
+using DataBaseAccess;
+using DataBaseModels;
 
 namespace Client.Views
 {
@@ -23,5 +26,10 @@ namespace Client.Views
         {
             InitializeComponent();
         }
+
+        public DirectorWindow(FarmContext context, Person director):this()
+        {
+            DataContext = new DirectorViewModel(context, director);
+        } // ctorf.
     }
 }

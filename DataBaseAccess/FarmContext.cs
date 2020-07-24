@@ -23,9 +23,8 @@ namespace DataBaseAccess
         public DbSet<PasswordHash> PasswordHashes { get; set; } // Таблица "Хэши паролей".
         public DbSet<Status> Statuses { get; set; }             // Таблица "Статусы".
         public DbSet<Person> Persons { get; set; }              // Таблица "Персоны".
-        public DbSet<Director> Directors { get; set; }          // Таблица "Директора".
-        public DbSet<Chief> Chiefs { get; set; }                // Таблица "Начальники".
         public DbSet<Employee> Employees { get; set; }          // Таблица "Работники".
+        public DbSet<Role> Roles { get; set; }                  // Таблица "Роли".
 
         // Настройка таблиц при помощи Fluent API.
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -61,14 +60,6 @@ namespace DataBaseAccess
                 .WithRequired(p => p.PasswordHash);
 
             modelBuilder.Entity<Person>()
-                .HasMany(p => p.Directors)
-                .WithRequired(p => p.Person);
-            
-            modelBuilder.Entity<Person>()
-                .HasMany(p => p.Chiefs)
-                .WithRequired(p => p.Person);
-
-            modelBuilder.Entity<Person>()
                 .HasMany(p => p.Employees)
                 .WithRequired(p => p.Person);
 
@@ -76,26 +67,16 @@ namespace DataBaseAccess
                 .HasMany(p => p.Cells)
                 .WithRequired(p => p.Shop);
 
-            modelBuilder.Entity<Shop>()
-                .HasMany(p => p.Employees)
-                .WithRequired(p => p.Shop)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Status>()
                 .HasMany(p => p.Persons)
                 .WithRequired(p => p.Status);
 
 
+            modelBuilder.Entity<Role>()
+                .HasMany(p => p.Persons)
+                .WithRequired(p => p.Role);
             #endregion
 
-
-            #region Связи один-к-одному
-            // Связи один-к-одному.
-            modelBuilder.Entity<Chief>()
-                .HasRequired(c => c.Shop)
-                .WithRequiredPrincipal(c => c.Chief);
-
-            #endregion
 
             #region Настройка Breed
             // Настройка Breed.

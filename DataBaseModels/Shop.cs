@@ -11,9 +11,7 @@ namespace DataBaseModels
     {
         // Свойства класса.
         public int Id { get; set; }                          // Идентификатор.
-        public virtual Chief Chief { get; set; }             // Начальник цеха.
         public virtual ICollection<Cell> Cells { get; set; } // Клетки, находящиеся в цеху.
-        public ICollection<Employee> Employees { get; set; } // Работники, закреплённые за данным цехом.
 
         public override string ToString() => Id.ToString();
     }

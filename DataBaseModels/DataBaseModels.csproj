@@ -52,15 +52,14 @@
     <Compile Include="Breed.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Chicken.cs" />
-    <Compile Include="Chief.cs" />
     <Compile Include="Diet.cs" />
-    <Compile Include="Director.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
+    <Compile Include="Role.cs" />
     <Compile Include="Shop.cs" />
     <Compile Include="Status.cs" />
   </ItemGroup>

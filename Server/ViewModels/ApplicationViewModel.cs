@@ -20,7 +20,6 @@ using DataBaseAccess;
 using DataBaseAccess.Initializers;
 using DataBaseModels;
 using Newtonsoft.Json;
-using Server.Controllers;
 using Server.Other;
 using Server.Views;
 
@@ -31,7 +30,7 @@ namespace Server.ViewModels
     {
         // Поля класса.
         private FarmContext _farmContext;
-        private ServerController _controller;
+        
         
         // Свойства класса.
         public FarmContext FarmContext => _farmContext;
@@ -101,9 +100,6 @@ namespace Server.ViewModels
         public RelayCommand ShowChiefsCommand =>
             _showChiefsCommand ?? new RelayCommand(obj =>
             {
-                _farmContext.Chiefs.Load();
-                ShowTableWindow window = new ShowTableWindow(_farmContext.Chiefs.Local);
-                window.ShowDialog();
             });
 
         public RelayCommand ShowDietsCommand =>
@@ -117,9 +113,7 @@ namespace Server.ViewModels
         public RelayCommand ShowDirectorsCommand =>
             _showDirectorsCommand ?? new RelayCommand(obj =>
             {
-                _farmContext.Directors.Load();
-                ShowTableWindow window = new ShowTableWindow(_farmContext.Directors.Local);
-                window.ShowDialog();
+                
             });
 
         public RelayCommand ShowEmployeesCommand =>
@@ -195,7 +189,6 @@ namespace Server.ViewModels
                 //MessageBox.Show("Сделано");
                 //_farmContext.Dispose();
                 //Database.SetInitializer(new DbInitializer());
-                _controller = new ServerController("127.0.0.1", 999, _farmContext);
 
                 JsonConvert.SerializeObject(_farmContext.Shops.Local, Formatting.Indented,
                     new JsonSerializerSettings() {ReferenceLoopHandling = ReferenceLoopHandling.Ignore});

@@ -1,0 +1,7 @@
+F:\Мои работы по программированию\Курсовые\DzevelyukCurs\ServerAPI\obj\Debug\ServerAPI.csprojAssemblyReference.cache
+F:\Мои работы по программированию\Курсовые\DzevelyukCurs\ServerAPI\obj\Debug\ServerAPI.csproj.CoreCompileInputs.cache
+F:\Мои работы по программированию\Курсовые\DzevelyukCurs\ServerAPI\bin\Debug\ServerAPI.exe.config
+F:\Мои работы по программированию\Курсовые\DzevelyukCurs\ServerAPI\bin\Debug\ServerAPI.exe
+F:\Мои работы по программированию\Курсовые\DzevelyukCurs\ServerAPI\bin\Debug\ServerAPI.pdb
+F:\Мои работы по программированию\Курсовые\DzevelyukCurs\ServerAPI\obj\Debug\ServerAPI.exe
+F:\Мои работы по программированию\Курсовые\DzevelyukCurs\ServerAPI\obj\Debug\ServerAPI.pdb

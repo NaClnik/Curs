@@ -1,0 +1,63 @@
+﻿<Window x:Class="Client.Views.ChickenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:local="clr-namespace:Client.Views"
+        mc:Ignorable="d"
+        Title="{Binding WindowTitle}"
+        Name="Main"
+        Height="608" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction
+                Command="{Binding FillGridCommand}"
+                CommandParameter="{Binding ElementName=MyGrid}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <!-- Дизайн взят отсюда https://www.youtube.com/watch?v=XcXjIqjB108 -->
+    <Grid>
+
+
+        <Grid Height="60" VerticalAlignment="Top" Background="#4bd7ff">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction
+                        Command="{Binding DragWindowCommand}"
+                        CommandParameter="{Binding ElementName=Main}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+
+            <TextBlock Text="{Binding WindowTitle}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" />
+            <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"
+                    Command="{Binding CloseWindowCommand}"
+                    CommandParameter="{Binding ElementName=Main}">
+                <materialDesign:PackIcon Kind="Power"/>
+            </Button>
+        </Grid>
+        <Grid Margin="0 60 0 0">
+            <dragablz:TabablzControl>
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+                <TabItem Header="Отчёты">
+                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Reports}"
+                              IsReadOnly="True" CanUserDeleteRows="False" CanUserAddRows="False"
+                              SelectedItem="{Binding SelectedChicken}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Идентификатор" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Кол-во яиц за день" Binding="{Binding Eggs}"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding Date}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </dragablz:TabablzControl>
+        </Grid>
+    </Grid>
+</Window>

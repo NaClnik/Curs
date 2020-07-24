@@ -1,15 +1,6 @@
 .vs
-
-DzevelyukCurs/bin
-
-DzevelyukCurs/obj
 DataBaseModels/bin
 DataBaseModels/obj
-Server/bin
-
-Server/obj
-ServerAPI/bin
-ServerAPI/obj
 Client/bin
 Client/obj
 DataBaseAccess/bin

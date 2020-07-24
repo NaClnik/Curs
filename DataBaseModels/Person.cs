@@ -17,11 +17,10 @@ namespace DataBaseModels
         public string Patronymic { get; set; }                       // Отчество.
         public string Passport { get; set; }                         // Паспортные данные.
         public double Salary { get; set; }                           // Зарплата.
+        public virtual Role Role { get; set; }                       // Роль работника.
         public virtual Status Status { get; set; }                   // Статус.
         public virtual Login Login { get; set; }                     // Логин.
         public virtual PasswordHash PasswordHash { get; set; }       // Пароль.
-        public virtual ICollection<Director> Directors { get; set; }
-        public virtual ICollection<Chief> Chiefs { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
 
         // Ансамбль конструкторов.

@@ -3,10 +3,74 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         xmlns:local="clr-namespace:Client.Views"
         mc:Ignorable="d"
-        Title="DirectorWindow" Height="450" Width="800">
+        Title="Сервер"
+        Name="Main"
+        Height="608" Width="1100" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction
+                Command="{Binding FillDockPanelCommand}"
+                CommandParameter="{Binding ElementName=Dock}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <!-- Дизайн взят отсюда https://www.youtube.com/watch?v=XcXjIqjB108 -->
     <Grid>
         
+
+        <Grid Height="60" VerticalAlignment="Top" Background="#1b97f3">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction
+                        Command="{Binding DragWindowCommand}"
+                        CommandParameter="{Binding ElementName=Main}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+
+            <TextBlock Text="Окно директора" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" />
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"
+                        Command="{Binding ExitCommand}"
+                        CommandParameter="{Binding ElementName=Main}">
+                    <materialDesign:PackIcon Kind="ExitToApp"/>
+                </Button>
+                <Button VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}"
+                        Command="{Binding CloseWindowCommand}"
+                        CommandParameter="{Binding ElementName=Main}">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+            
+            
+        </Grid>
+        <Grid Margin="0 60 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="90*"/>
+            </Grid.RowDefinitions>
+
+            <Border BorderThickness="2" BorderBrush="Black">
+                <StackPanel Orientation="Horizontal" Margin="40,0,0,0" HorizontalAlignment="Center">
+                    <TextBlock Margin="5,0,0,0" Text="{Binding Director.Surname}" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Center"/>
+                    <TextBlock Margin="5,0,0,0" Text="{Binding Director.Name}" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Center"/>
+                    <TextBlock Margin="5,0,0,0" Text="{Binding Director.Patronymic}" Style="{StaticResource MaterialDesignBody1TextBlock}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            
+
+            <GroupBox Grid.Row="1" Header="Панель управления птицефабрикой">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <WrapPanel Name="Dock"/>
+                </ScrollViewer>
+            </GroupBox>
+            
+        </Grid>
     </Grid>
 </Window>

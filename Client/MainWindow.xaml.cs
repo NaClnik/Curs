@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Client.ViewModels;
+using DataBaseAccess;
 
 namespace Client
 {
@@ -27,5 +28,12 @@ namespace Client
 
             DataContext = new LoginViewModel();
         }
+
+        public MainWindow(FarmContext context)
+        {
+            InitializeComponent();
+
+            DataContext = new LoginViewModel(context);
+        } // ctorf.
     }
 }
